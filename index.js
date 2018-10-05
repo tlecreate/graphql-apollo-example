@@ -140,16 +140,16 @@ const resolvers = {
     replies: ({ id }) => replies.filter(item => item.user_id === id)
   },
   Post: {
-    user: ({ user_id: id }) => (id) => users.find(item => item.id === id),
+    user: ({ user_id: id }) => users.find(item => item.id === id),
     comments: ({ id }) => comments.filter(item => item.parent === id)
   },
   Comment: {
-    user: ({ user_id: id }) => (id) => users.find(item => item.id === id),
+    user: ({ user_id: id }) => users.find(item => item.id === id),
     post: ({ parent }) => posts.find(item => item.id === parent),
     replies: ({ id }) => replies.filter(item => item.parent === id)
   },
   Reply: {
-    user: ({ user_id: id }) => (id) => users.find(item => item.id === id),
+    user: ({ user_id: id }) => users.find(item => item.id === id),
     comment: ({ parent }) => comments.find(item => item.id === parent)
   },
   Query: {
